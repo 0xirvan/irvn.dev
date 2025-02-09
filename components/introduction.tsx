@@ -1,5 +1,5 @@
 import React from "react";
-import HeadingText from "./heading-text";
+import HeadingText from "@/components/heading-text";
 
 function Introduction() {
   return (
