@@ -12,13 +12,19 @@ function Navbar() {
         </div>
         <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
           <Link
-            className="text-lg transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
+            className="text-base transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
             href="/"
           >
             Home
           </Link>
           <Link
-            className="text-lg transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
+            className="text-base transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
+            href="/projects"
+          >
+            Projects
+          </Link>
+          <Link
+            className="text-base transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
             href="/stats"
           >
             Stats
