@@ -5,7 +5,7 @@ import React from "react";
 export default function () {
   return (
     <main>
-      <HeadingText>Projects</HeadingText>
+      <HeadingText>projects</HeadingText>
       {[...Array(4)].map((_, i) => (
         <div key={i} className="group mb-4">
           <div className="flex items-start">

@@ -15,19 +15,19 @@ function Navbar() {
             className="text-base transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
             href="/"
           >
-            Home
+            home
           </Link>
           <Link
             className="text-base transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
             href="/projects"
           >
-            Projects
+            projects
           </Link>
           <Link
             className="text-base transition-all hover:text-neutral-700 dark:hover:text-neutral-200 flex align-middle relative"
             href="/stats"
           >
-            Stats
+            stats
           </Link>
           <ThemeToggle />
         </div>

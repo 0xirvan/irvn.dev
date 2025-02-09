@@ -11,16 +11,16 @@ async function Page() {
   if ("error" in data) {
     return (
       <main>
-        <HeadingText>Projects</HeadingText>
+        <HeadingText>projects</HeadingText>
         <div className="space-y-6">
-          <p className="text-center">Oops... something went wrong</p>
+          <p className="text-center">oops... something went wrong</p>
         </div>
       </main>
     );
   }
   return (
     <main>
-      <HeadingText>Projects</HeadingText>
+      <HeadingText>projects</HeadingText>
       <div className="space-y-6">
         {data.map((project) => (
           <ProjectCard key={project.repo} project={project} />
