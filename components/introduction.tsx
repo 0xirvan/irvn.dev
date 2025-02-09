@@ -6,7 +6,7 @@ function Introduction() {
     <section className="space-y-12 px-4 md:px-0">
       <div>
         <h1 className="text-xl md:text-2xl mb-4">Sup, i'm Irvan pramana 👋</h1>
-        <p>full-stack developer who loves open-source</p>
+        <p>Full-stack developer who loves open-source</p>
       </div>
       <div>
         <HeadingText>About me</HeadingText>
@@ -16,7 +16,7 @@ function Introduction() {
           includes Nextjs, React, TypeScript, Bun for the toolkit and Hono for
           the backend.
         </p>
-        <p className="leading-relaxed">currently, learning golang.</p>
+        <p className="leading-relaxed">Currently, learning golang.</p>
       </div>
     </section>
   );
