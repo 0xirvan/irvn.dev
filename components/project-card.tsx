@@ -15,7 +15,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       >
         <span className="mr-2">•</span>
         <div>
-          <h2 className="font-medium mb-1">{project.repo}</h2>
+          <h2 className="font-medium text-lg mb-1">{project.repo}</h2>
           <p className="text-sm text-left">{project.description}</p>
         </div>
       </a>

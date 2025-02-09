@@ -22,7 +22,7 @@ async function Page() {
     <main>
       <HeadingText>Projects</HeadingText>
       <div className="space-y-6">
-        {data.map((project, index) => (
+        {data.map((project) => (
           <ProjectCard key={project.repo} project={project} />
         ))}
       </div>
