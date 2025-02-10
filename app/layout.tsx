@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} font-sans className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40"`}
+        className={`${geistMono.variable} font-sans antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-10 lg:mb-40`}
       >
         <ThemeProvider
           attribute="class"
