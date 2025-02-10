@@ -1,7 +1,7 @@
 import wretch from "wretch";
 import { env } from "@/env.mjs";
 
-const api = wretch("https://wakatime.com", { cache: "no-store" })
+const api = wretch("https://wakatime.com", { cache: "force-cache" })
   .errorType("json")
   .resolve((r) => r.json());
 

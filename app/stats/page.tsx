@@ -15,6 +15,8 @@ interface ResponseData {
   error?: string;
 }
 
+export const revalidate = 86400;
+
 async function Page() {
   const data = (await getCodingStats()) as ResponseData;
 
