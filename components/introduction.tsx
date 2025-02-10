@@ -3,7 +3,7 @@ import HeadingText from "@/components/heading-text";
 
 function Introduction() {
   return (
-    <section className="space-y-12 px-2 md:px-0">
+    <section className="space-y-12 md:px-0">
       <div>
         <h1 className="text-xl md:text-2xl mb-4">sup, i'm irvan pramana👋</h1>
         <p>full-stack developer who loves open-source</p>
