@@ -1,10 +1,11 @@
 import React from "react";
 import {
+  SiFacebook,
   SiGithub,
-  SiInstagram,
   SiMailboxdotorg,
   SiX,
 } from "@icons-pack/react-simple-icons";
+import { siteConfig } from "@/lib/site-config";
 
 function Footer() {
   return (
@@ -14,16 +15,31 @@ function Footer() {
           &copy; {new Date().getFullYear()} Irvan pramana
         </span>
         <div className="flex gap-4">
-          <a href="">
+          <a
+            href={siteConfig.links.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Github"
+          >
             <SiGithub size={16} />
           </a>
-          <a href="">
-            <SiInstagram size={16} />
+          <a
+            href={siteConfig.links.facebook}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Github"
+          >
+            <SiFacebook size={16} />
           </a>
-          <a href="">
+          <a
+            href={siteConfig.links.twitter}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Github"
+          >
             <SiX size={16} />
           </a>
-          <a href="">
+          <a href="mailto:irvandotdev@gmail.com" aria-label="Email">
             <SiMailboxdotorg size={16} />
           </a>
         </div>
