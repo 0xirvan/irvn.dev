@@ -6,6 +6,8 @@ import React from "react";
 
 type RepoData = GithubRepo[] | { error: string };
 
+export const dynamic = "force-dynamic";
+
 async function Page() {
   const data = (await getRepo()) as RepoData;
   if ("error" in data) {
