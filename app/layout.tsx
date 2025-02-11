@@ -20,10 +20,11 @@ export const metadata: Metadata = {
   keywords: [
     "Irvan",
     "Irvan pramana",
+    "pramana",
     "irvanpramana",
     "irvan pramana putra",
-    "irvn .dev",
-    "0x476569636f",
+    "irvan dev",
+    "0xirvan",
   ],
   robots: "follow, index",
   applicationName: siteConfig.title,
