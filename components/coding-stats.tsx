@@ -17,7 +17,7 @@ export default function CodingStats({
 
   return (
     <div>
-      <h3 className="text-sm mb-2">codin stats</h3>
+      <h3 className="text-sm mb-2">coding stats provided by wakatime</h3>
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
