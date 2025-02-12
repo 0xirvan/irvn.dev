@@ -15,11 +15,11 @@ interface ResponseData {
   error?: string;
 }
 
-// export const revalidate = 86400;
+export const revalidate = 3600;
 
 async function Page() {
   const res = await fetch("https://wakatime.com/api/v1/users/current/stats", {
-    next: { revalidate: 86400 },
+    // next: { revalidate: 86400 },
     headers: {
       Authorization: `Basic ${Buffer.from(env.WAKATIME_API_KEY).toString(
         "base64"
