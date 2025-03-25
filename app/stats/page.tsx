@@ -4,6 +4,7 @@ import HeadingText from "@/components/heading-text";
 import React from "react";
 import { Languages as LanguagesType } from "@/types";
 import { env } from "@/env.mjs";
+import { Metadata } from "next";
 
 interface ResponseData {
   data: {
@@ -14,6 +15,10 @@ interface ResponseData {
   };
   error?: string;
 }
+
+export const metadata: Metadata = {
+  title: "Stats",
+};
 
 export const revalidate = 3600;
 

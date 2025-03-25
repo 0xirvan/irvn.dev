@@ -2,11 +2,16 @@ import HeadingText from "@/components/heading-text";
 import ProjectCard from "@/components/project-card";
 import { getRepo } from "@/lib/api/github";
 import { GithubRepo } from "@/types";
+import { Metadata } from "next";
 import React from "react";
 
 type RepoData = GithubRepo[] | { error: string };
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Projects",
+};
 
 async function Page() {
   const data = (await getRepo()) as RepoData;
