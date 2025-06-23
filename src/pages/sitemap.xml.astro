@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
+const siteUrl = Astro.site ? Astro.site.origin : "https://irvn.dev";
+
 const projects = await getCollection("projects");
 
 const pages = [
@@ -18,11 +20,12 @@ const projectUrls = projects.map((project) => ({
 const allUrls = [...pages, ...projectUrls];
 ---
 
+<!--?xml version="1.0" encoding="UTF-8"?-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {
     allUrls.map((page) => (
       <url>
-        <loc>{new URL(page.url, Astro.site).href}</loc>
+        <loc>{new URL(page.url, siteUrl).toString()}</loc>
         <lastmod>{page.lastModified.toISOString()}</lastmod>
       </url>
     ))
