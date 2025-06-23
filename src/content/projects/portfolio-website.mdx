@@ -1,0 +1,85 @@
+---
+title: "Personal Portfolio Website"
+description: "A modern portfolio website built with Astro and React components with dark mode support."
+publishDate: "2025-05-15"
+tags: ["Astro", "React", "TailwindCSS", "TypeScript"]
+image: "/images/projects/portfolio.jpg"
+featured: true
+---
+
+# Building My Portfolio Website
+
+This portfolio website was built to showcase my projects and skills as a developer. I wanted to create something that was fast, responsive, and easy to update.
+
+## Technologies Used
+
+- **Astro**: For static site generation and routing
+- **React**: For interactive components
+- **TailwindCSS**: For styling
+- **TypeScript**: For type safety
+- **MDX**: For content management
+
+## Features
+
+### Dark Mode Toggle
+
+The site includes a dark mode toggle that respects the user's system preferences but also allows manual control.
+
+```tsx
+// ModeToggle.tsx
+export function ModeToggle() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.contains("dark");
+    document.documentElement.classList.toggle("dark", !isDark);
+    setTheme(!isDark ? "dark" : "light");
+  }
+
+  return (
+    <Button variant="ghost" size="icon" onClick={toggleTheme}>
+      {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+    </Button>
+  );
+}
+```
+
+### Page Transitions
+
+Smooth page transitions were implemented using Framer Motion to enhance the user experience:
+
+```tsx
+const PageTransition = ({ children, pathname }: Props) => {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+```
+
+## Deployment
+
+The site is deployed on Vercel, which provides automatic deployments on every push to the main branch. The build process is optimized for performance, resulting in very fast load times.
+
+## Future Improvements
+
+I plan to add more features to this site in the future, including:
+
+- A blog section
+- Filtering projects by technology
+- More interactive elements
+- Improved accessibility
