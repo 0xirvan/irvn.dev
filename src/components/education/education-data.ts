@@ -9,7 +9,7 @@ export const educationData: Education[] = [
   {
     date: "2022 - Present",
     title: "Software Engineering",
-    institution: "Universitas Bina Sarana",
+    institution: "Universitas Bina Sarana Informatika",
     description:
       "Focused on computer science, software development, and modern information technology. Studying various programming languages, algorithms, and software engineering.",
   },
