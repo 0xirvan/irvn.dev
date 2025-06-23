@@ -2,10 +2,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
-import vercelServerless from '@astrojs/vercel/serverless';
+import vercelStatic from '@astrojs/vercel/static';
 
 export default defineConfig({
-  output: 'server',
+  output: 'static',
+  adapter: vercelStatic(),
   site: 'https://irvn.dev', 
   vite: {
     plugins: [tailwindcss()]
@@ -18,7 +19,6 @@ export default defineConfig({
       rehypePlugins: []
     })
   ],
-  adapter: vercelServerless(),
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
