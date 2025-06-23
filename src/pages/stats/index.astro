@@ -1,0 +1,56 @@
+---
+import { DiscordActivity } from "@/components/activity/DiscordActivityCard";
+import CodingStats from "@/components/wakatime/CodingStats";
+import Main from "@/layouts/main.astro";
+import { fetchWakaTimeStats } from "@/lib/wakatime";
+
+let wakaTimeData = null;
+let wakaTimeError = null;
+
+try {
+  wakaTimeData = await fetchWakaTimeStats();
+} catch (error) {
+  console.error("Failed to fetch WakaTime data:", error);
+  wakaTimeError = "Failed to load WakaTime data. Please check your API key.";
+}
+
+const languages = wakaTimeData?.languages || [];
+const started = wakaTimeData?.human_readable_range || "past 7 days";
+const totalTime =
+  wakaTimeData?.categories?.[0]?.digital ||
+  wakaTimeData?.human_readable_total ||
+  "0 hrs";
+---
+
+<Main content={{ title: "Stats | My Portfolio" }}>
+  <div class="w-full flex flex-col py-12">
+    <header class="text-center">
+      <h1 class="text-4xl font-bold mb-4">My Stats</h1>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+        Live insights and activity data showcasing what I'm currently working
+        on.
+      </p>
+    </header>
+
+    <section class="py-8 max-w-4xl mx-auto w-full">
+      <h2 class="text-2xl font-semibold mb-6">Discord Activity</h2>
+      <DiscordActivity client:only="react" />
+    </section>
+    <section class="py-8 max-w-4xl mx-auto w-full">
+      {
+        wakaTimeError ? (
+          <div class="bg-destructive/10 border border-destructive p-4 rounded-lg text-destructive">
+            <p class="font-medium">Error</p>
+            <p>{wakaTimeError}</p>
+          </div>
+        ) : (
+          <CodingStats
+            languages={languages}
+            started={started}
+            totalTime={totalTime}
+          />
+        )
+      }
+    </section>
+  </div>
+</Main>
