@@ -4,8 +4,8 @@ export const profile = {
   profileImage: "https://avatars.githubusercontent.com/u/52144823",
   resumeUrl: "/resume.pdf",
   socials: {
-    instagram: "https://instagram.com/irvanprama",
-    linkedin: "https://linkedin.com/in/irvanprama",
-    github: "https://github.com/irvanprama",
+    instagram: "https://instagram.com/0xirvan",
+    linkedin: "https://linkedin.com/in/0xirvan",
+    github: "https://github.com/0xirvan",
   },
 };

@@ -3,6 +3,8 @@ import Main from "@/layouts/main.astro";
 import type { CollectionEntry } from "astro:content";
 import "../styles/global.css";
 import { formatDate } from "@/lib/utils";
+import { projectJsonLd } from "@/lib/schema";
+import Seo from "@/components/Seo.astro";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -12,9 +14,32 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 
 const formattedDate = formatDate(project.data.publishDate);
+
+const projectData = {
+  title: project.data.title,
+  description: project.data.description,
+  date: project.data.publishDate.toISOString(),
+  technologies: project.data.tags || [],
+  github: "",
+  demoUrl: "",
+  image: project.data.image,
+};
+
+const jsonLd = projectJsonLd(projectData);
 ---
 
-<Main content={{ title: `${project.data.title} | Projects` }}>
+<Main content={{ title: `${project.data.title} | Irvan pramana` }}>
+  <Seo
+    title={`${project.data.title} | Irvan Pramana Projects`}
+    description={project.data.description}
+    image={project.data.image}
+    type="article"
+    canonicalURL={`/projects/${project.slug}`}
+  />
+
+  <!-- Project structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <article class="mx-auto w-full max-w-3xl py-12">
     <header class="mb-8">
       <div class="mb-2 flex flex-wrap gap-2 text-sm text-muted-foreground">

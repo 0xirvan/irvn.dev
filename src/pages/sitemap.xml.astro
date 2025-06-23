@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+
+const pages = [
+  { url: "/", lastModified: new Date() },
+  { url: "/projects", lastModified: new Date() },
+  { url: "/education", lastModified: new Date() },
+  { url: "/stats", lastModified: new Date() },
+];
+
+const projectUrls = projects.map((project) => ({
+  url: `/projects/${project.slug}`,
+  lastModified: project.data.publishDate || new Date(),
+}));
+
+const allUrls = [...pages, ...projectUrls];
+---
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {
+    allUrls.map((page) => (
+      <url>
+        <loc>{new URL(page.url, Astro.site).href}</loc>
+        <lastmod>{page.lastModified.toISOString()}</lastmod>
+      </url>
+    ))
+  }
+</urlset>

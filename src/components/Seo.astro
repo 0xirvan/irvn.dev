@@ -1,0 +1,66 @@
+---
+/**
+ * SEO Component for Astro
+ * Used to set page-specific SEO values for the head of the document
+ *
+ * Usage in Astro pages:
+ * ---
+ * import Seo from '../components/Seo.astro';
+ * ---
+ *
+ * <Seo
+ *   title="Custom Page Title"
+ *   description="Custom page description for SEO"
+ *   image="https://example.com/image.jpg"
+ *   type="article"
+ * />
+ */
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: "website" | "article" | "profile";
+  keywords?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  canonicalURL,
+  type = "website",
+  keywords,
+  noindex = false,
+  nofollow = false,
+} = Astro.props;
+
+const robotsContent = [
+  noindex ? "noindex" : "index",
+  nofollow ? "nofollow" : "follow",
+].join(", ");
+---
+
+<!-- SEO Meta Tags - Will be added to head -->{title && <title>{title}</title>}
+{title && <meta name="title" content={title} />}
+{description && <meta name="description" content={description} />}
+{keywords && <meta name="keywords" content={keywords} />}
+{canonicalURL && <link rel="canonical" href={canonicalURL} />}
+
+<!-- Open Graph / Facebook -->
+{title && <meta property="og:title" content={title} />}
+{description && <meta property="og:description" content={description} />}
+{image && <meta property="og:image" content={image} />}
+{type && <meta property="og:type" content={type} />}
+
+<!-- Twitter Card -->
+{title && <meta name="twitter:title" content={title} />}
+{description && <meta name="twitter:description" content={description} />}
+{image && <meta name="twitter:image" content={image} />}
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Robots -->
+{(noindex || nofollow) && <meta name="robots" content={robotsContent} />}

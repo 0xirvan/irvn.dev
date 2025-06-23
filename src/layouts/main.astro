@@ -4,6 +4,28 @@ const { content } = Astro.props;
 import { Navigation } from "@/components/navbar/Navigation";
 import PageTransition from "@/components/PageTransition";
 import { ClientRouter } from "astro:transitions";
+
+const defaultMeta = {
+  siteName: "Irvan Pramana - Backend Developer",
+  description:
+    "Backend developer specializing in Java and Golang, with expertise in Spring Boot and distributed systems.",
+  type: "website",
+  image: "https://avatars.githubusercontent.com/u/52144823",
+  twitterHandle: "@wagbosol",
+  keywords:
+    "backend developer, Java, Golang, Spring Boot, distributed systems, API development",
+  canonicalURL: new URL(Astro.url.pathname, Astro.site || "https://irvn.dev"),
+};
+
+const meta = {
+  ...defaultMeta,
+  title: content?.title || defaultMeta.siteName,
+  description: content?.description || defaultMeta.description,
+  image: content?.image || defaultMeta.image,
+  canonicalURL: content?.canonicalURL
+    ? new URL(content.canonicalURL, Astro.site)
+    : defaultMeta.canonicalURL,
+};
 ---
 
 <script is:inline>
@@ -46,10 +68,59 @@ import { ClientRouter } from "astro:transitions";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <ClientRouter />
-    <title>{content.title}</title>
+
+    <!-- Primary Meta Tags -->
+    <title>{meta.title}</title>
+    <meta name="title" content={meta.title} />
+    <meta name="description" content={meta.description} />
+    <meta name="keywords" content={meta.keywords} />
+    <meta name="author" content="Irvan Pramana" />
+    <link rel="canonical" href={meta.canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={meta.type} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={meta.image} />
+    <meta property="og:site_name" content={meta.siteName} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={meta.title} />
+    <meta property="twitter:description" content={meta.description} />
+    <meta property="twitter:image" content={meta.image} />
+    <meta property="twitter:creator" content={meta.twitterHandle} />
+
+    <!-- Structured Data / JSON-LD -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Irvan Pramana",
+        url: Astro.site,
+        image: meta.image,
+        jobTitle: "Backend Developer",
+        sameAs: [
+          "https://instagram.com/0xirvan",
+          "https://linkedin.com/in/0xirvan",
+          "https://github.com/0xirvan",
+        ],
+        description: meta.description,
+      })}
+    />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const { webVitals } = await import("../lib/seo");
+        webVitals();
+      });
+    </script>
   </head>
   <body>
     <div class="w-full">

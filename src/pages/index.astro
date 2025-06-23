@@ -2,9 +2,16 @@
 import { HeroSection } from "@/components/hero/HeroSection";
 import { TechStack } from "@/components/TechStack";
 import Main from "../layouts/main.astro";
+import Seo from "@/components/Seo.astro";
 ---
 
-<Main content={{ title: "My Page Title" }}>
+<Main content={{ title: "Irvan Pramana - Backend Developer" }}>
+  <Seo
+    title="Irvan Pramana - Backend Developer Portfolio"
+    description="Backend developer specializing in Java and Golang, with expertise in Spring Boot and distributed systems."
+    image="https://avatars.githubusercontent.com/u/52144823"
+    canonicalURL="/"
+  />
   <div class="w-full flex flex-col items-center md:items-start justify-start">
     <HeroSection />
     <div class="w-full pt-6">
