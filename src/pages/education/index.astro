@@ -1,0 +1,45 @@
+---
+import Main from "@/layouts/main.astro";
+import { Timeline, TimelineItem } from "@/components/education/Timeline";
+import { educationData } from "@/components/education/education-data";
+import { CertificationsGallery } from "@/components/education/CertificationsGallery";
+---
+
+<Main content={{ title: "Education | My Portfolio" }}>
+  <div class="w-full flex flex-col py-12">
+    <header class="text-center">
+      <h1 class="text-4xl font-bold mb-4">My Education</h1>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+        The academic journey and educational background that has shaped my
+        skills and knowledge.
+      </p>
+    </header>
+
+    <section class="py-8 max-w-4xl mx-auto w-full">
+      <Timeline className="ml-4">
+        {
+          educationData.map((item, index) => (
+            <TimelineItem
+              date={item.date}
+              title={item.title}
+              institution={item.institution}
+              description={item.description}
+              isLast={index === educationData.length - 1}
+              client:visible
+            />
+          ))
+        }
+      </Timeline>
+    </section>
+
+    <section class="py-12 max-w-4xl mx-auto w-full">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">My Certifications</h2>
+        <p class="text-muted-foreground max-w-2xl mx-auto mb-8">
+          Professional certifications and achievements that validate my skills and expertise.
+        </p>
+      </div>
+      <CertificationsGallery client:visible />
+    </section>
+  </div>
+</Main>

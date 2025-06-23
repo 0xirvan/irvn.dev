@@ -1,4 +1,4 @@
-import { Home, FolderKanban, BarChart3 } from "lucide-react"
+import { Home, FolderKanban, BarChart3, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
@@ -11,6 +11,7 @@ interface NavigationProps {
 export function Navigation({ currentPath = "/" }: NavigationProps) {
   const navItems = [
     { icon: Home, href: "/", label: "Home" },
+    { icon: GraduationCap, href: "/education", label: "Education" },
     { icon: FolderKanban, href: "/projects", label: "Projects" },
     { icon: BarChart3, href: "/stats", label: "Stats" },
   ]
