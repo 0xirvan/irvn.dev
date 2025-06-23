@@ -20,8 +20,5 @@ export default defineConfig({
       theme: 'github-dark',
       wrap: true
     }
-  },
-  experimental: {
-    viewTransitions: true
   }
 });
