@@ -1,15 +1,14 @@
 ---
-// src/pages/about.astro
 import { HeroSection } from "@/components/hero/HeroSection";
+import { TechStack } from "@/components/TechStack";
 import Main from "../layouts/main.astro";
 ---
 
 <Main content={{ title: "My Page Title" }}>
   <div class="w-full flex flex-col items-center md:items-start justify-start">
     <HeroSection />
-    <div class="w-full border-t border-border my-8 pt-6">
-      <h2 class="text-2xl font-semibold">Tulisan Terbaru</h2>
-      <!-- Content dapat ditambahkan di sini -->
+    <div class="w-full pt-6">
+      <TechStack client:load />
     </div>
   </div>
 </Main>
