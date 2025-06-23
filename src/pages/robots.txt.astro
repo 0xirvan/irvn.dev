@@ -2,4 +2,6 @@
 const siteUrl = Astro.site ? Astro.site.origin : "https://irvn.dev";
 ---
 
-User-agent: * Allow: / Sitemap: {new URL("sitemap.xml", siteUrl).toString()}
+User-agent: *
+Allow: /
+Sitemap: {new URL("sitemap.xml", siteUrl).toString()}
