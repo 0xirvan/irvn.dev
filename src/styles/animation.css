@@ -1,0 +1,16 @@
+.preserve-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.page-transition-container {
+  isolation: isolate;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion) {
+  .page-transition-container {
+    transition: none !important;
+    animation: none !important;
+  }
+}
