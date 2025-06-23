@@ -19,18 +19,17 @@ export function TechStack() {
   return (
     <section className="py-8">
       <h2 className="mb-6 text-2xl font-bold">Tech Stack</h2>
-      
+
       <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
         {technologies.map((tech) => (
-          <div 
+          <div
             key={tech.name}
             className="flex flex-col items-center gap-2 p-2 border border-border rounded-lg bg-background/60 shadow-sm hover:border-primary/50 hover:bg-primary/5 transition-colors"
           >
-            <img 
-              src={tech.icon} 
-              alt={tech.name} 
-              // java not inverted in dark mode
-              className={`h-8 w-8 ${tech.name !== 'Java' ? 'dark:invert dark:brightness-200 dark:contrast-200' : ''}`} 
+            <img
+              src={tech.icon}
+              alt={tech.name}
+              className="h-8 w-8 dark:invert dark:brightness-200 dark:contrast-200"
             />
             <span className="text-xs text-muted-foreground">{tech.name}</span>
           </div>
@@ -39,4 +38,3 @@ export function TechStack() {
     </section>
   );
 }
-
