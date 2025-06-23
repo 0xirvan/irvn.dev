@@ -3,7 +3,7 @@ import "../styles/global.css";
 const { content } = Astro.props;
 import { Navigation } from "@/components/navbar/Navigation";
 import PageTransition from "@/components/PageTransition";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <script is:inline>
@@ -48,7 +48,7 @@ import { ViewTransitions } from "astro:transitions";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <ViewTransitions />
+    <ClientRouter />
     <title>{content.title}</title>
   </head>
   <body>
