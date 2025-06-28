@@ -19,7 +19,7 @@ export function TimelineItem({
   return (
     <motion.div
       className="relative flex items-start pb-12 group"
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0.01, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 }}
