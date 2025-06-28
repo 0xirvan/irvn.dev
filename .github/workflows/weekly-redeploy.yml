@@ -1,6 +1,7 @@
 name: Weekly Redeploy
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 2 * * 1" # Setiap Senin jam 09:00 WIB (UTC+7)
 
