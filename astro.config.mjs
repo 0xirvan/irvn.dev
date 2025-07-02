@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import vercelStatic from '@astrojs/vercel/static';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
@@ -17,7 +18,8 @@ export default defineConfig({
       syntaxHighlight: 'prism',
       remarkPlugins: [],
       rehypePlugins: []
-    })
+    }),
+    sitemap()
   ],
   markdown: {
     shikiConfig: {
